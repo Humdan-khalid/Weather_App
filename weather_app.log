@@ -1,0 +1,50 @@
+2026-04-27 11:28:59,871 | INFO | app.utils.log_config | GET /user - 0.0008s
+2026-04-27 11:34:40,649 | INFO | app.utils.log_config | GET /user - 0.0000s
+2026-04-27 11:35:05,922 | INFO | app.utils.log_config | GET /user - 0.0000s
+2026-04-27 11:40:20,296 | INFO | app.utils.log_config | GET /docs - 0.0000s
+2026-04-27 11:40:20,563 | INFO | app.utils.log_config | GET /openapi.json - 0.1004s
+2026-04-27 11:40:42,103 | INFO | app.utils.log_config | Token created sucessfully!
+2026-04-27 11:40:42,103 | INFO | app.utils.log_config | Admin loggin successfully with this email hafsa155@gmail.com 
+2026-04-27 11:40:42,103 | INFO | app.utils.log_config | POST /login/admins - 0.5618s
+2026-04-27 11:43:40,383 | INFO | app.utils.log_config | GET /top_user - 0.2406s
+2026-04-27 15:48:47,027 | INFO | app.utils.log_config | GET /docs - 0.0000s
+2026-04-27 15:48:47,224 | INFO | app.utils.log_config | GET /openapi.json - 0.0700s
+2026-04-27 15:56:15,000 | INFO | app.utils.log_config | GET /docs - 0.0000s
+2026-04-27 15:56:15,193 | INFO | app.utils.log_config | GET /openapi.json - 0.0762s
+2026-04-27 15:57:02,289 | INFO | app.utils.log_config | GET /docs - 0.0017s
+2026-04-27 15:57:02,420 | INFO | app.utils.log_config | GET /openapi.json - 0.0490s
+2026-04-27 15:58:12,435 | INFO | app.utils.log_config | POST /new_admin - 0.0221s
+2026-04-27 16:01:56,806 | INFO | app.utils.log_config | POST /new_admin - 0.7052s
+2026-04-27 16:03:37,694 | INFO | app.utils.log_config | POST /new_admin - 0.5447s
+2026-04-27 16:06:11,980 | INFO | app.utils.log_config | POST /new_admin - 0.4878s
+2026-04-27 17:35:34,735 | INFO | app.utils.log_config | GET /docs - 0.0020s
+2026-04-27 17:35:35,042 | INFO | app.utils.log_config | GET /openapi.json - 0.1460s
+2026-04-27 17:37:09,661 | INFO | app.utils.log_config | Token created sucessfully!
+2026-04-27 17:37:09,661 | INFO | app.utils.log_config | Admin loggin successfully with this email saeedasif122@gmail.com 
+2026-04-27 17:37:09,661 | INFO | app.utils.log_config | POST /login/admins - 0.6092s
+2026-04-28 20:16:56,890 | INFO | app.utils.log_config | GET /docs - 0.0015s
+2026-04-28 20:16:57,174 | INFO | app.utils.log_config | GET /openapi.json - 0.1743s
+2026-04-28 20:18:29,408 | INFO | app.utils.log_config | POST /users - 0.1296s
+2026-04-28 20:18:45,058 | INFO | app.utils.log_config | POST /users - 0.5401s
+2026-04-28 20:19:24,866 | INFO | app.utils.log_config | Token created sucessfully!
+2026-04-28 20:19:24,871 | INFO | app.utils.log_config | POST /login/users - 0.3115s
+2026-04-28 20:21:04,768 | INFO | httpx | HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?q=Melbourne&appid=b8255bf89ea06bc7f0dfd13a270eddc6&units=metric "HTTP/1.1 200 OK"
+2026-04-28 20:21:04,848 | INFO | app.utils.log_config | GET /live_weather - 2.9295s
+2026-04-28 20:21:09,926 | INFO | app.utils.log_config | GET /live_weather - 0.0202s
+2026-04-28 20:21:29,443 | INFO | app.utils.log_config | GET /get_user_history - 0.0133s
+2026-04-28 20:27:32,038 | INFO | app.utils.log_config | GET /city - 0.1470s
+2026-04-28 20:28:22,761 | INFO | app.utils.log_config | POST /login/admin - 0.1040s
+2026-04-28 20:29:22,724 | INFO | app.utils.log_config | Token created sucessfully!
+2026-04-28 20:29:22,724 | INFO | app.utils.log_config | POST /login/admin - 0.2085s
+2026-04-28 20:31:15,961 | INFO | app.utils.log_config | Token created sucessfully!
+2026-04-28 20:31:15,961 | INFO | app.utils.log_config | POST /login/admin - 0.4238s
+2026-04-28 20:31:50,348 | INFO | app.utils.log_config | GET /city - 0.0344s
+2026-04-28 20:33:59,212 | INFO | app.utils.log_config | GET /top_user - 0.1825s
+2026-04-28 20:34:53,997 | INFO | app.utils.log_config | POST /new_admin - 0.1010s
+2026-04-28 20:35:13,938 | INFO | app.utils.log_config | POST /new_admin - 0.0031s
+2026-04-28 20:35:24,541 | INFO | app.utils.log_config | POST /new_admin - 0.2754s
+2026-04-28 20:35:46,448 | INFO | app.utils.log_config | Token created sucessfully!
+2026-04-28 20:35:46,450 | INFO | app.utils.log_config | POST /login/admin - 0.1368s
+2026-04-29 21:17:46,013 | INFO | app.utils.log_config | GET /docs - 0.0022s
+2026-04-29 21:17:46,360 | INFO | app.utils.log_config | GET /openapi.json - 0.1422s
+2026-04-29 21:18:45,179 | INFO | app.utils.log_config | POST /users - 0.4630s

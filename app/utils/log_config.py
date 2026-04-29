@@ -1,4 +1,7 @@
 import logging
+from fastapi import FastAPI, Request
+import time
+import logging
 
 logging.basicConfig(
     filename="weather_app.log",
@@ -6,3 +9,4 @@ logging.basicConfig(
     format="%(asctime)s | %(levelname)s | %(name)s | %(message)s")
 
 logger = logging.getLogger(__name__)
+
