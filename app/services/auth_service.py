@@ -5,13 +5,13 @@ from app.core.jwt import create_token
 from app.database_models.users_table import CreateUsers, EmailStr, Users
 from app.database_models.admins_table import CreateAdmin, Admins, LoginAdmin
 from sqlmodel import Session
-from app.core.exceptions import UserAlreadyExist
+from app.core import exceptions
 
 def new_account_created(user: CreateUsers, session: Session):
     db_user = auth_repo.user_authentication_with_email(session, user.email)
     
     if db_user:
-        raise UserAlreadyExist("Account already exist with this email.")
+        raise exceptions.UserAlreadyExist("Account already exist with this email.")
     
     new_user = Users(
     name=user.name.title(),
@@ -26,12 +26,13 @@ def new_account_created(user: CreateUsers, session: Session):
 
     except Exception as e:
         session.rollback()
-        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=str(e))
+        raise exceptions.ServerError("Internal Server Error")
 
     return new_user
     
 def user_login(user, session: Session):
     db_user = auth_repo.user_authentication_with_email(session, user.email)
+    
     if not db_user:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid email or password!")
     

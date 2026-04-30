@@ -8,7 +8,7 @@ from app.services import auth_service
 from app.services import weather_service
 from app.services import user_history
 from app.core.middleware import log_request_middleware
-from app.core.exceptions import UserAlreadyExist
+from app.core import exceptions
 
 
 app = FastAPI()
@@ -21,8 +21,11 @@ def user_new_account(user:CreateUsers, session: Session=Depends(get_session)):
     try:
         return auth_service.new_account_created(user, session)
     
-    except UserAlreadyExist as e:
+    except exceptions.UserAlreadyExist as e:
         raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail=str(e))
+    
+    except exceptions.ServerError as e:
+        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=str(e))
 
 @app.post("/login/users", status_code=status.HTTP_200_OK, response_model=LoginModel)
 def login_users(user: UsersLogin, session: Session = Depends(get_session)):
