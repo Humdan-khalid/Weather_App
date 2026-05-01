@@ -5,3 +5,17 @@ class UserAlreadyExist(Exception):
 class ServerError(Exception):
     pass
 
+class InvalidCredentials(Exception):
+    pass
+
+class DatabaseError(Exception):
+    pass
+
+class HistoryNotFound(Exception):
+    pass
+
+class UserNotFound(Exception):
+    pass
+
+class AdminAlreadyExist(Exception):
+    pass

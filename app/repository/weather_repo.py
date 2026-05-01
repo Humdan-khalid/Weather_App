@@ -2,6 +2,7 @@ from sqlmodel import Session, select, func
 from app.database_models.user_data_history import UserHistory
 from fastapi import HTTPException, status
 from app.database_models.user_data_history import UserHistory
+from app.core import exceptions
 
 def save_weather_history(session: Session, user_id: int, data: dict, city: str):
         user_history = UserHistory(
@@ -22,7 +23,7 @@ def save_weather_history(session: Session, user_id: int, data: dict, city: str):
         
         except Exception as e:
             session.rollback()
-            raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Internal server error")
+            raise exceptions.DatabaseError("Internal Server Error!")
 
 
 def find_user_history(session: Session, user: dict):

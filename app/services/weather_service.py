@@ -6,12 +6,13 @@ from app.utils.caching import get_weather_data_from_cache
 from app.repository import weather_repo
 from app.repository import auth_repo 
 from app.utils import caching
+from app.core import exceptions
 
 async def get_live_weather(city_name: str, session: Session, user: dict):
     db_user = auth_repo.user_authentication_with_email(session, user["email"])
 
     if not db_user:
-        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Unauthorized user!")
+        raise exceptions.InvalidCredentials("User not found!")
     
     city = city_name.title()
 

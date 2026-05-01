@@ -34,10 +34,10 @@ def user_login(user, session: Session):
     db_user = auth_repo.user_authentication_with_email(session, user.email)
     
     if not db_user:
-        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid email or password!")
+        raise exceptions.InvalidCredentials("Invalid email or password!")
     
     if not verify_hash_password(user.password, db_user.password):
-        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid email or password!")
+        raise exceptions.InvalidCredentials("Invalid email or password!")
     
     token = create_token(
         {
@@ -53,7 +53,7 @@ def admin_new_account_created(create_admin: CreateAdmin, session: Session):
     db_admin = auth_repo.admin_authentication_with_email(session, create_admin.email)
 
     if db_admin:
-        raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="Account already exist at this email")
+        raise exceptions.AdminAlreadyExist("account already exists at this email")
     
     new_admin = Admins(
         name=create_admin.name,
@@ -67,7 +67,7 @@ def admin_new_account_created(create_admin: CreateAdmin, session: Session):
         auth_repo.admin_save_in_database(session, new_admin)
     except:
         session.rollback()
-        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Internal server error!")
+        raise exceptions.AdminAlreadyExist("Internal server error!")
     
     return new_admin
 
@@ -75,10 +75,10 @@ def admin_login(admin: LoginAdmin ,session: Session):
     db_admin = auth_repo.admin_authentication_with_email(session, admin.email)
 
     if not db_admin:
-        raise HTTPException(status_code=status.HTTP_200_OK, detail="Unauthorized user!")
+        raise exceptions.InvalidCredentials("Invalid email or password!")
     
     if not verify_hash_password(admin.password, db_admin.password):
-        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Unauthorized User!")
+        raise exceptions.InvalidCredentials("Invalid email or password!")
     
     token = create_token(
         {
