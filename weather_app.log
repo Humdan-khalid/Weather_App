@@ -48,3 +48,57 @@
 2026-04-29 21:17:46,013 | INFO | app.utils.log_config | GET /docs - 0.0022s
 2026-04-29 21:17:46,360 | INFO | app.utils.log_config | GET /openapi.json - 0.1422s
 2026-04-29 21:18:45,179 | INFO | app.utils.log_config | POST /users - 0.4630s
+2026-05-02 21:14:32,896 | INFO | app.utils.log_config | GET /docs - 0.0010s
+2026-05-02 21:14:33,283 | INFO | app.utils.log_config | GET /openapi.json - 0.1298s
+2026-05-02 21:15:04,699 | INFO | app.utils.log_config | POST /login/users - 0.6241s
+2026-05-02 21:15:44,878 | INFO | app.utils.log_config | POST /login/users - 0.1304s
+2026-05-02 21:16:04,205 | INFO | app.utils.log_config | Token created sucessfully!
+2026-05-02 21:16:04,205 | INFO | app.utils.log_config | POST /login/users - 0.5981s
+2026-05-03 02:58:01,794 | CRITICAL | app.utils.log_config | Database url not found!
+2026-05-03 03:10:41,459 | INFO | app.utils.log_config | GET /docs - 0.0020s
+2026-05-03 03:10:41,824 | INFO | app.utils.log_config | GET /openapi.json - 0.1029s
+2026-05-03 03:12:44,787 | CRITICAL | app.utils.log_config | Database url not found!
+2026-05-03 14:51:20,023 | INFO | app.utils.log_config | GET /docs - 0.0000s
+2026-05-03 14:51:20,271 | INFO | app.utils.log_config | GET /openapi.json - 0.1255s
+2026-05-03 14:52:04,616 | CRITICAL | app.utils.log_config | Database url not found!
+2026-05-03 15:00:12,138 | CRITICAL | app.utils.log_config | Database url not found!
+2026-05-03 15:12:56,325 | INFO | app.utils.log_config | POST /login/users - 0.0163s
+2026-05-03 15:13:23,953 | INFO | app.utils.log_config | POST /login/users - 0.0014s
+2026-05-03 15:13:34,248 | INFO | app.utils.log_config | Token created sucessfully!
+2026-05-03 15:13:34,248 | INFO | app.utils.log_config | POST /login/users - 1.5975s
+2026-05-03 15:23:01,243 | INFO | app.utils.log_config | POST /login/users - 0.6616s
+2026-05-03 15:23:36,990 | INFO | app.utils.log_config | POST /login/users - 0.0195s
+2026-05-03 15:55:38,330 | INFO | app.utils.log_config | POST /users - 0.0190s
+2026-05-03 15:55:58,745 | INFO | app.utils.log_config | POST /users - 0.0025s
+2026-05-03 15:56:15,017 | INFO | app.utils.log_config | POST /users - 0.9580s
+2026-05-03 15:57:43,951 | INFO | app.utils.log_config | POST /users - 0.7540s
+2026-05-03 16:06:14,580 | INFO | app.utils.log_config | GET /docs - 0.0020s
+2026-05-03 16:06:14,940 | INFO | app.utils.log_config | GET /openapi.json - 0.1767s
+2026-05-03 16:06:45,786 | INFO | app.utils.log_config | Token created sucessfully!
+2026-05-03 16:06:45,789 | INFO | app.utils.log_config | POST /login/users - 0.6208s
+2026-05-03 16:17:01,829 | INFO | app.utils.log_config | GET /live_weather - 0.0000s
+2026-05-03 16:17:52,027 | INFO | app.utils.log_config | GET /live_weather - 0.0016s
+2026-05-03 16:18:06,391 | INFO | app.utils.log_config | GET /live_weather - 0.0014s
+2026-05-03 16:30:38,663 | INFO | app.utils.log_config | GET /live_weather - 0.0000s
+2026-05-03 16:34:35,254 | INFO | app.utils.log_config | Token created sucessfully!
+2026-05-03 16:34:35,254 | INFO | app.utils.log_config | POST /login/users - 0.8401s
+2026-05-03 16:34:46,973 | INFO | app.utils.log_config | GET /docs - 0.0010s
+2026-05-03 16:34:47,422 | INFO | app.utils.log_config | GET /openapi.json - 0.2074s
+2026-05-03 16:35:47,650 | INFO | httpx | HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?q=Luxembourg&appid=b8255bf89ea06bc7f0dfd13a270eddc6&units=metric "HTTP/1.1 200 OK"
+2026-05-03 16:35:47,761 | INFO | app.utils.log_config | GET /get_weather - 4.6209s
+2026-05-03 16:36:11,375 | INFO | app.utils.log_config | GET /get_weather - 0.1872s
+2026-05-03 16:46:51,550 | INFO | app.utils.log_config | GET /get_user_history - 0.6800s
+2026-05-03 17:08:24,290 | INFO | app.utils.log_config | POST /users - 0.7464s
+2026-05-03 17:08:54,574 | INFO | app.utils.log_config | Token created sucessfully!
+2026-05-03 17:08:54,575 | INFO | app.utils.log_config | POST /login/users - 0.3082s
+2026-05-03 17:09:15,491 | INFO | httpx | HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?q=Melbourne&appid=b8255bf89ea06bc7f0dfd13a270eddc6&units=metric "HTTP/1.1 200 OK"
+2026-05-03 17:09:15,566 | INFO | app.utils.log_config | GET /get_weather - 2.8155s
+2026-05-03 17:09:38,123 | INFO | httpx | HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?q=Karachi&appid=b8255bf89ea06bc7f0dfd13a270eddc6&units=metric "HTTP/1.1 200 OK"
+2026-05-03 17:09:38,190 | INFO | app.utils.log_config | GET /get_weather - 2.5443s
+2026-05-03 17:09:51,176 | INFO | app.utils.log_config | GET /get_user_history - 0.1420s
+2026-05-03 17:10:11,437 | INFO | app.utils.log_config | GET /city - 0.1777s
+2026-05-03 17:11:43,470 | INFO | app.utils.log_config | POST /new_admin - 0.3752s
+2026-05-03 17:13:55,215 | INFO | app.utils.log_config | Token created sucessfully!
+2026-05-03 17:13:55,215 | INFO | app.utils.log_config | POST /login/admin - 0.2945s
+2026-05-03 17:14:19,042 | INFO | app.utils.log_config | GET /city - 0.1749s
+2026-05-03 17:14:31,584 | INFO | app.utils.log_config | GET /top_user - 0.1527s

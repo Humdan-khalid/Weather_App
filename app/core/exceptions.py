@@ -19,3 +19,15 @@ class UserNotFound(Exception):
 
 class AdminAlreadyExist(Exception):
     pass
+
+class SecretDataNotFound(Exception):
+    pass
+
+class TokenExpired(Exception):
+    pass
+
+class InvalidToken(Exception):
+    pass
+
+class DatabaseUrlNotFound(Exception):
+    pass

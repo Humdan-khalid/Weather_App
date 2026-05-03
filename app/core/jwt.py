@@ -1,20 +1,21 @@
 from jose import jwt, ExpiredSignatureError, JWTError
 from datetime import datetime, timedelta, timezone
-from fastapi import HTTPException, status
+from fastapi import Depends
 from app.utils.log_config import logger
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
-from fastapi import Depends, HTTPException
 from app.core.config import secret_key, algorithm
+from app.core.exceptions import SecretDataNotFound, TokenExpired, InvalidToken
 
-if not secret_key:
-    logger.error("Secret key not found!")
-    raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Internal server error")
+def valid_jwt_config():
+    if not secret_key:
+        raise SecretDataNotFound("Secret key not found!")
 
-if not algorithm:
-    logger.error("Algorithm not found!")
-    raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Internal server error")
+    if not algorithm:
+        raise SecretDataNotFound("Algorithm not found!")
 
 def create_token(user_data: dict, time_expiry: timedelta = timedelta(minutes=60)):
+    valid_jwt_config()
+
     payload = user_data.copy()
     payload["exp"] = datetime.now(timezone.utc) + time_expiry
     payload["sub"] = str(user_data["id"])
@@ -25,14 +26,15 @@ def create_token(user_data: dict, time_expiry: timedelta = timedelta(minutes=60)
     return token
 
 def user_token_verification(token: str):
+    valid_jwt_config()
+    
     try:
         user_token = jwt.decode(token, secret_key, algorithm)
     except ExpiredSignatureError:
-        logger.warning("Token Expired!")
-        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="token expired!")
+        raise TokenExpired("Token expired!")
     except JWTError:
-        logger.warning("Jwt error!", exc_info=True)
-        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="JWT error")
+        raise InvalidToken("Invalid token!")
+    
     return user_token
 
 security = HTTPBearer()
