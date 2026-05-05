@@ -1,6 +1,6 @@
 from fastapi import Request
 import time
-from app.utils.log_config import logger
+from app.core.log_config import logger
 
 async def log_request_middleware(request: Request, call_next):
     start_time = time.time()

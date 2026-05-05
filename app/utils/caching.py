@@ -1,8 +1,6 @@
-from app.database_models.user_data_history import UserHistory
-from app.repository.auth_repo import user_authentication_with_email
-from datetime import datetime
 import json
 import redis
+from app.core.log_config import logger
 
 r = redis.Redis(
     host="localhost",
@@ -21,7 +19,8 @@ def get_weather_data_from_cache(city_name: str):
 
     if not cached:
         return None
-     
+    
+    logger.info(f"{city} weather data came from the cache.")
     return {
         k: v for k, v in cached.items()
         }
@@ -33,10 +32,14 @@ def set_cached(city: str, data: dict):
     r.expire(key, 300)
 
 
-def get_history_from_cache(user_id: int):
+def get_user_weather_history_from_cache(user_id: int):
     cache_key = f"user:{user_id}"
     cached = r.get(cache_key)
 
+    if not cached:
+        return None
+    
+    
     return cached
 
 def save_history_in_cache(data: dict, user: dict):

@@ -31,3 +31,9 @@ class InvalidToken(Exception):
 
 class DatabaseUrlNotFound(Exception):
     pass
+
+class WeatherApiKeyNotFound(Exception):
+    pass
+
+class CityNotFound(Exception):
+    pass

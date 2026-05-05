@@ -18,18 +18,8 @@ def database_url_exception(request: Request, exc: DatabaseUrlNotFound):
 
 app.include_router(users.router)
 
-app.include_router(users.router)
-
-app.include_router(weather.router)
-
 app.include_router(weather.router)
 
 app.include_router(history.router)
-
-app.include_router(history.router)
-
-app.include_router(history.router)
-
-app.include_router(admins.router)
 
 app.include_router(admins.router)

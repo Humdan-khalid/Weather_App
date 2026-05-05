@@ -1,7 +1,4 @@
 import logging
-from fastapi import FastAPI, Request
-import time
-import logging
 
 logging.basicConfig(
     filename="weather_app.log",

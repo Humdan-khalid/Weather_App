@@ -1,104 +1,33 @@
-2026-04-27 11:28:59,871 | INFO | app.utils.log_config | GET /user - 0.0008s
-2026-04-27 11:34:40,649 | INFO | app.utils.log_config | GET /user - 0.0000s
-2026-04-27 11:35:05,922 | INFO | app.utils.log_config | GET /user - 0.0000s
-2026-04-27 11:40:20,296 | INFO | app.utils.log_config | GET /docs - 0.0000s
-2026-04-27 11:40:20,563 | INFO | app.utils.log_config | GET /openapi.json - 0.1004s
-2026-04-27 11:40:42,103 | INFO | app.utils.log_config | Token created sucessfully!
-2026-04-27 11:40:42,103 | INFO | app.utils.log_config | Admin loggin successfully with this email hafsa155@gmail.com 
-2026-04-27 11:40:42,103 | INFO | app.utils.log_config | POST /login/admins - 0.5618s
-2026-04-27 11:43:40,383 | INFO | app.utils.log_config | GET /top_user - 0.2406s
-2026-04-27 15:48:47,027 | INFO | app.utils.log_config | GET /docs - 0.0000s
-2026-04-27 15:48:47,224 | INFO | app.utils.log_config | GET /openapi.json - 0.0700s
-2026-04-27 15:56:15,000 | INFO | app.utils.log_config | GET /docs - 0.0000s
-2026-04-27 15:56:15,193 | INFO | app.utils.log_config | GET /openapi.json - 0.0762s
-2026-04-27 15:57:02,289 | INFO | app.utils.log_config | GET /docs - 0.0017s
-2026-04-27 15:57:02,420 | INFO | app.utils.log_config | GET /openapi.json - 0.0490s
-2026-04-27 15:58:12,435 | INFO | app.utils.log_config | POST /new_admin - 0.0221s
-2026-04-27 16:01:56,806 | INFO | app.utils.log_config | POST /new_admin - 0.7052s
-2026-04-27 16:03:37,694 | INFO | app.utils.log_config | POST /new_admin - 0.5447s
-2026-04-27 16:06:11,980 | INFO | app.utils.log_config | POST /new_admin - 0.4878s
-2026-04-27 17:35:34,735 | INFO | app.utils.log_config | GET /docs - 0.0020s
-2026-04-27 17:35:35,042 | INFO | app.utils.log_config | GET /openapi.json - 0.1460s
-2026-04-27 17:37:09,661 | INFO | app.utils.log_config | Token created sucessfully!
-2026-04-27 17:37:09,661 | INFO | app.utils.log_config | Admin loggin successfully with this email saeedasif122@gmail.com 
-2026-04-27 17:37:09,661 | INFO | app.utils.log_config | POST /login/admins - 0.6092s
-2026-04-28 20:16:56,890 | INFO | app.utils.log_config | GET /docs - 0.0015s
-2026-04-28 20:16:57,174 | INFO | app.utils.log_config | GET /openapi.json - 0.1743s
-2026-04-28 20:18:29,408 | INFO | app.utils.log_config | POST /users - 0.1296s
-2026-04-28 20:18:45,058 | INFO | app.utils.log_config | POST /users - 0.5401s
-2026-04-28 20:19:24,866 | INFO | app.utils.log_config | Token created sucessfully!
-2026-04-28 20:19:24,871 | INFO | app.utils.log_config | POST /login/users - 0.3115s
-2026-04-28 20:21:04,768 | INFO | httpx | HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?q=Melbourne&appid=b8255bf89ea06bc7f0dfd13a270eddc6&units=metric "HTTP/1.1 200 OK"
-2026-04-28 20:21:04,848 | INFO | app.utils.log_config | GET /live_weather - 2.9295s
-2026-04-28 20:21:09,926 | INFO | app.utils.log_config | GET /live_weather - 0.0202s
-2026-04-28 20:21:29,443 | INFO | app.utils.log_config | GET /get_user_history - 0.0133s
-2026-04-28 20:27:32,038 | INFO | app.utils.log_config | GET /city - 0.1470s
-2026-04-28 20:28:22,761 | INFO | app.utils.log_config | POST /login/admin - 0.1040s
-2026-04-28 20:29:22,724 | INFO | app.utils.log_config | Token created sucessfully!
-2026-04-28 20:29:22,724 | INFO | app.utils.log_config | POST /login/admin - 0.2085s
-2026-04-28 20:31:15,961 | INFO | app.utils.log_config | Token created sucessfully!
-2026-04-28 20:31:15,961 | INFO | app.utils.log_config | POST /login/admin - 0.4238s
-2026-04-28 20:31:50,348 | INFO | app.utils.log_config | GET /city - 0.0344s
-2026-04-28 20:33:59,212 | INFO | app.utils.log_config | GET /top_user - 0.1825s
-2026-04-28 20:34:53,997 | INFO | app.utils.log_config | POST /new_admin - 0.1010s
-2026-04-28 20:35:13,938 | INFO | app.utils.log_config | POST /new_admin - 0.0031s
-2026-04-28 20:35:24,541 | INFO | app.utils.log_config | POST /new_admin - 0.2754s
-2026-04-28 20:35:46,448 | INFO | app.utils.log_config | Token created sucessfully!
-2026-04-28 20:35:46,450 | INFO | app.utils.log_config | POST /login/admin - 0.1368s
-2026-04-29 21:17:46,013 | INFO | app.utils.log_config | GET /docs - 0.0022s
-2026-04-29 21:17:46,360 | INFO | app.utils.log_config | GET /openapi.json - 0.1422s
-2026-04-29 21:18:45,179 | INFO | app.utils.log_config | POST /users - 0.4630s
-2026-05-02 21:14:32,896 | INFO | app.utils.log_config | GET /docs - 0.0010s
-2026-05-02 21:14:33,283 | INFO | app.utils.log_config | GET /openapi.json - 0.1298s
-2026-05-02 21:15:04,699 | INFO | app.utils.log_config | POST /login/users - 0.6241s
-2026-05-02 21:15:44,878 | INFO | app.utils.log_config | POST /login/users - 0.1304s
-2026-05-02 21:16:04,205 | INFO | app.utils.log_config | Token created sucessfully!
-2026-05-02 21:16:04,205 | INFO | app.utils.log_config | POST /login/users - 0.5981s
-2026-05-03 02:58:01,794 | CRITICAL | app.utils.log_config | Database url not found!
-2026-05-03 03:10:41,459 | INFO | app.utils.log_config | GET /docs - 0.0020s
-2026-05-03 03:10:41,824 | INFO | app.utils.log_config | GET /openapi.json - 0.1029s
-2026-05-03 03:12:44,787 | CRITICAL | app.utils.log_config | Database url not found!
-2026-05-03 14:51:20,023 | INFO | app.utils.log_config | GET /docs - 0.0000s
-2026-05-03 14:51:20,271 | INFO | app.utils.log_config | GET /openapi.json - 0.1255s
-2026-05-03 14:52:04,616 | CRITICAL | app.utils.log_config | Database url not found!
-2026-05-03 15:00:12,138 | CRITICAL | app.utils.log_config | Database url not found!
-2026-05-03 15:12:56,325 | INFO | app.utils.log_config | POST /login/users - 0.0163s
-2026-05-03 15:13:23,953 | INFO | app.utils.log_config | POST /login/users - 0.0014s
-2026-05-03 15:13:34,248 | INFO | app.utils.log_config | Token created sucessfully!
-2026-05-03 15:13:34,248 | INFO | app.utils.log_config | POST /login/users - 1.5975s
-2026-05-03 15:23:01,243 | INFO | app.utils.log_config | POST /login/users - 0.6616s
-2026-05-03 15:23:36,990 | INFO | app.utils.log_config | POST /login/users - 0.0195s
-2026-05-03 15:55:38,330 | INFO | app.utils.log_config | POST /users - 0.0190s
-2026-05-03 15:55:58,745 | INFO | app.utils.log_config | POST /users - 0.0025s
-2026-05-03 15:56:15,017 | INFO | app.utils.log_config | POST /users - 0.9580s
-2026-05-03 15:57:43,951 | INFO | app.utils.log_config | POST /users - 0.7540s
-2026-05-03 16:06:14,580 | INFO | app.utils.log_config | GET /docs - 0.0020s
-2026-05-03 16:06:14,940 | INFO | app.utils.log_config | GET /openapi.json - 0.1767s
-2026-05-03 16:06:45,786 | INFO | app.utils.log_config | Token created sucessfully!
-2026-05-03 16:06:45,789 | INFO | app.utils.log_config | POST /login/users - 0.6208s
-2026-05-03 16:17:01,829 | INFO | app.utils.log_config | GET /live_weather - 0.0000s
-2026-05-03 16:17:52,027 | INFO | app.utils.log_config | GET /live_weather - 0.0016s
-2026-05-03 16:18:06,391 | INFO | app.utils.log_config | GET /live_weather - 0.0014s
-2026-05-03 16:30:38,663 | INFO | app.utils.log_config | GET /live_weather - 0.0000s
-2026-05-03 16:34:35,254 | INFO | app.utils.log_config | Token created sucessfully!
-2026-05-03 16:34:35,254 | INFO | app.utils.log_config | POST /login/users - 0.8401s
-2026-05-03 16:34:46,973 | INFO | app.utils.log_config | GET /docs - 0.0010s
-2026-05-03 16:34:47,422 | INFO | app.utils.log_config | GET /openapi.json - 0.2074s
-2026-05-03 16:35:47,650 | INFO | httpx | HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?q=Luxembourg&appid=b8255bf89ea06bc7f0dfd13a270eddc6&units=metric "HTTP/1.1 200 OK"
-2026-05-03 16:35:47,761 | INFO | app.utils.log_config | GET /get_weather - 4.6209s
-2026-05-03 16:36:11,375 | INFO | app.utils.log_config | GET /get_weather - 0.1872s
-2026-05-03 16:46:51,550 | INFO | app.utils.log_config | GET /get_user_history - 0.6800s
-2026-05-03 17:08:24,290 | INFO | app.utils.log_config | POST /users - 0.7464s
-2026-05-03 17:08:54,574 | INFO | app.utils.log_config | Token created sucessfully!
-2026-05-03 17:08:54,575 | INFO | app.utils.log_config | POST /login/users - 0.3082s
-2026-05-03 17:09:15,491 | INFO | httpx | HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?q=Melbourne&appid=b8255bf89ea06bc7f0dfd13a270eddc6&units=metric "HTTP/1.1 200 OK"
-2026-05-03 17:09:15,566 | INFO | app.utils.log_config | GET /get_weather - 2.8155s
-2026-05-03 17:09:38,123 | INFO | httpx | HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?q=Karachi&appid=b8255bf89ea06bc7f0dfd13a270eddc6&units=metric "HTTP/1.1 200 OK"
-2026-05-03 17:09:38,190 | INFO | app.utils.log_config | GET /get_weather - 2.5443s
-2026-05-03 17:09:51,176 | INFO | app.utils.log_config | GET /get_user_history - 0.1420s
-2026-05-03 17:10:11,437 | INFO | app.utils.log_config | GET /city - 0.1777s
-2026-05-03 17:11:43,470 | INFO | app.utils.log_config | POST /new_admin - 0.3752s
-2026-05-03 17:13:55,215 | INFO | app.utils.log_config | Token created sucessfully!
-2026-05-03 17:13:55,215 | INFO | app.utils.log_config | POST /login/admin - 0.2945s
-2026-05-03 17:14:19,042 | INFO | app.utils.log_config | GET /city - 0.1749s
-2026-05-03 17:14:31,584 | INFO | app.utils.log_config | GET /top_user - 0.1527s
+2026-05-04 16:12:19,513 | INFO | app.core.log_config | Access token created | user_id: 11 | expiry: 1:00:00
+2026-05-04 16:12:19,513 | INFO | app.core.log_config | User login Successfully with access token | email: hamdankhalid111@gmail.com
+2026-05-04 16:12:19,513 | INFO | app.core.log_config | POST /login/users - 0.2641s
+2026-05-04 16:15:55,344 | INFO | httpx | HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?q=Istanbul&appid=b8255bf89ea06bc7f0dfd13a270eddc6&units=metric "HTTP/1.1 200 OK"
+2026-05-04 16:15:55,349 | INFO | app.core.log_config | Istanbul weather got successfully.
+2026-05-04 16:15:55,398 | INFO | app.core.log_config | GET /get_weather - 4.4388s
+2026-05-04 16:16:55,275 | INFO | app.core.log_config | Istanbul weather data came from the cache.
+2026-05-04 16:16:55,313 | INFO | app.core.log_config | GET /get_weather - 0.3094s
+2026-05-04 16:17:24,367 | INFO | httpx | HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?q=Istanbol&appid=b8255bf89ea06bc7f0dfd13a270eddc6&units=metric "HTTP/1.1 404 Not Found"
+2026-05-04 16:17:24,376 | WARNING | app.core.log_config | Istanbol not found!
+2026-05-04 16:17:24,376 | INFO | app.core.log_config | GET /get_weather - 2.7967s
+2026-05-04 16:35:32,995 | INFO | app.core.log_config | GET /docs - 0.0015s
+2026-05-04 16:35:33,360 | INFO | app.core.log_config | GET /openapi.json - 0.1236s
+2026-05-04 16:36:08,001 | INFO | app.core.log_config | Access token created | user_id: 11 | expiry: 1:00:00
+2026-05-04 16:36:08,006 | INFO | app.core.log_config | POST /login/users - 0.6154s
+2026-05-04 16:36:34,113 | WARNING | app.core.log_config | Unauthorized admin try to the top data user | admin_email: hamdankhalid111@gmail.com
+2026-05-04 16:36:34,113 | INFO | app.core.log_config | GET /top_user - 0.0943s
+2026-05-05 17:01:37,936 | INFO | app.core.log_config | GET /docs - 0.0047s
+2026-05-05 17:01:38,324 | INFO | app.core.log_config | GET /openapi.json - 0.1476s
+2026-05-05 17:02:09,592 | CRITICAL | app.core.log_config | JWT config error: Secret key not found!
+2026-05-05 17:02:09,596 | INFO | app.core.log_config | POST /login/users - 0.8177s
+2026-05-05 17:05:43,811 | CRITICAL | app.core.log_config | Jwt config error: Algorithm not found!
+2026-05-05 17:05:43,811 | INFO | app.core.log_config | POST /login/users - 0.5221s
+2026-05-05 17:07:18,057 | CRITICAL | app.core.log_config | Jwt config error: Algorithm not found!
+2026-05-05 17:07:18,057 | INFO | app.core.log_config | POST /login/users - 0.4305s
+2026-05-05 18:48:53,784 | INFO | app.core.log_config | GET /docs - 0.0013s
+2026-05-05 18:48:54,011 | INFO | app.core.log_config | GET /openapi.json - 0.1134s
+2026-05-05 18:49:20,927 | CRITICAL | app.core.log_config | JWT config error: Secret key not found!
+2026-05-05 18:49:20,930 | INFO | app.core.log_config | POST /login/users - 0.5552s
+2026-05-05 18:50:31,972 | CRITICAL | app.core.log_config | JWT config error: Secret key not found!
+2026-05-05 18:50:31,972 | INFO | app.core.log_config | POST /login/users - 0.4089s
+2026-05-05 18:51:00,257 | CRITICAL | app.core.log_config | Jwt config error: Algorithm not found!
+2026-05-05 18:51:00,260 | INFO | app.core.log_config | POST /login/users - 0.2957s

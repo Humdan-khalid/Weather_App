@@ -1,20 +1,24 @@
 from sqlmodel import Session
-from fastapi import Depends, HTTPException, status
-from app.core.jwt import user_token
 from app.services import api_call
 from app.utils.caching import get_weather_data_from_cache
 from app.repository import weather_repo
 from app.repository import auth_repo 
 from app.utils import caching
-from app.core import exceptions
+from app.core.exceptions import InvalidCredentials, CityNotFound
+from app.core.log_config import logger
 
 async def get_live_weather(city_name: str, session: Session, user: dict):
     db_user = auth_repo.user_authentication_with_email(session, user["email"])
 
     if not db_user:
-        raise exceptions.InvalidCredentials("User not found!")
+        logger.warning(f"Unauthorized User tried to fetched the weather data. | Email: {user['email']}")
+        raise InvalidCredentials("User not found!")
     
     city = city_name.title()
+
+    if not city:
+        logger.warning(f"City not found! | city: {city}")
+        raise CityNotFound("City not found")
 
     cache_data = get_weather_data_from_cache(city)
 

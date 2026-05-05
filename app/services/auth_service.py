@@ -1,16 +1,17 @@
 from app.utils.password_hash import verify_hash_password, create_hash_password
 from app.repository import auth_repo
-from fastapi import HTTPException, status
 from app.core.jwt import create_token
-from app.database_models.users_table import CreateUsers, EmailStr, Users
+from app.database_models.users_table import CreateUsers, Users, UsersLogin
 from app.database_models.admins_table import CreateAdmin, Admins, LoginAdmin
 from sqlmodel import Session
 from app.core import exceptions
+from app.core.log_config import logger
 
 def new_account_created(user: CreateUsers, session: Session):
     db_user = auth_repo.user_authentication_with_email(session, user.email)
     
     if db_user:
+        logger.warning(f"User account already exist at this email. | Email: {user.email}")
         raise exceptions.UserAlreadyExist("Account already exist with this email.")
     
     new_user = Users(
@@ -26,17 +27,21 @@ def new_account_created(user: CreateUsers, session: Session):
 
     except Exception as e:
         session.rollback()
-        raise exceptions.ServerError("Internal Server Error")
+        logger.error(f"Failed to save user account due to a database error! {str(e)}")
+        raise exceptions.ServerError("Internal Server Error!")
 
+    logger.info(f"User created sucessfully | user_email: {user.email}")
     return new_user
     
-def user_login(user, session: Session):
+def user_login(user: UsersLogin, session: Session):
     db_user = auth_repo.user_authentication_with_email(session, user.email)
     
     if not db_user:
+        logger.warning(f"Login attempt failed with wrong email | email: {user.email}")
         raise exceptions.InvalidCredentials("Invalid email or password!")
     
     if not verify_hash_password(user.password, db_user.password):
+        logger.warning(f"Login attempt failed with wrong password | email: {user.email}")
         raise exceptions.InvalidCredentials("Invalid email or password!")
     
     token = create_token(
@@ -46,38 +51,45 @@ def user_login(user, session: Session):
         }
     )
 
+    logger.info(f"User authenticated successfully | user_email: {user.email}")
+
     return{"access_token": token,
            "token_type": "Bearer"}
 
-def admin_new_account_created(create_admin: CreateAdmin, session: Session):
-    db_admin = auth_repo.admin_authentication_with_email(session, create_admin.email)
+def admin_new_account_created(admin: CreateAdmin, session: Session):
+    db_admin = auth_repo.admin_authentication_with_email(session, admin.email)
 
     if db_admin:
+        logger.warning(f"Admin account already exists at this email | email: {admin.email}")
         raise exceptions.AdminAlreadyExist("account already exists at this email")
     
     new_admin = Admins(
-        name=create_admin.name,
-        age=create_admin.age,
-        phone_number=create_admin.phone_number,
-        email=create_admin.email,
-        password=create_hash_password(create_admin.password)
+        name=admin.name,
+        age=admin.age,
+        phone_number=admin.phone_number,
+        email=admin.email,
+        password=create_hash_password(admin.password)
     )
 
     try:
         auth_repo.admin_save_in_database(session, new_admin)
-    except:
+    except Exception as e:
         session.rollback()
+        logger.error(f"Failed to save admin account due to a database error!, {str(e)}")
         raise exceptions.AdminAlreadyExist("Internal server error!")
     
+    logger.info(f"Successfully admin account created | email: {admin.email}")
     return new_admin
 
 def admin_login(admin: LoginAdmin ,session: Session):
     db_admin = auth_repo.admin_authentication_with_email(session, admin.email)
 
     if not db_admin:
+        logger.warning(f"Admin login attempt failed with wrong email | email: {admin.email}")
         raise exceptions.InvalidCredentials("Invalid email or password!")
     
     if not verify_hash_password(admin.password, db_admin.password):
+        logger.warning(f"Invalid login attempt failed with wrong password | email: {admin.email}")
         raise exceptions.InvalidCredentials("Invalid email or password!")
     
     token = create_token(
@@ -87,6 +99,7 @@ def admin_login(admin: LoginAdmin ,session: Session):
         }
     )
 
+    logger.info(f"Admin authenticated successfully | admin_email: {admin.email}")
     return {
         "access_token": token,
         "token_type": "Bearer"
