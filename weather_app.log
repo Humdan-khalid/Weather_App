@@ -1,33 +1,14 @@
-2026-05-04 16:12:19,513 | INFO | app.core.log_config | Access token created | user_id: 11 | expiry: 1:00:00
-2026-05-04 16:12:19,513 | INFO | app.core.log_config | User login Successfully with access token | email: hamdankhalid111@gmail.com
-2026-05-04 16:12:19,513 | INFO | app.core.log_config | POST /login/users - 0.2641s
-2026-05-04 16:15:55,344 | INFO | httpx | HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?q=Istanbul&appid=b8255bf89ea06bc7f0dfd13a270eddc6&units=metric "HTTP/1.1 200 OK"
-2026-05-04 16:15:55,349 | INFO | app.core.log_config | Istanbul weather got successfully.
-2026-05-04 16:15:55,398 | INFO | app.core.log_config | GET /get_weather - 4.4388s
-2026-05-04 16:16:55,275 | INFO | app.core.log_config | Istanbul weather data came from the cache.
-2026-05-04 16:16:55,313 | INFO | app.core.log_config | GET /get_weather - 0.3094s
-2026-05-04 16:17:24,367 | INFO | httpx | HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?q=Istanbol&appid=b8255bf89ea06bc7f0dfd13a270eddc6&units=metric "HTTP/1.1 404 Not Found"
-2026-05-04 16:17:24,376 | WARNING | app.core.log_config | Istanbol not found!
-2026-05-04 16:17:24,376 | INFO | app.core.log_config | GET /get_weather - 2.7967s
-2026-05-04 16:35:32,995 | INFO | app.core.log_config | GET /docs - 0.0015s
-2026-05-04 16:35:33,360 | INFO | app.core.log_config | GET /openapi.json - 0.1236s
-2026-05-04 16:36:08,001 | INFO | app.core.log_config | Access token created | user_id: 11 | expiry: 1:00:00
-2026-05-04 16:36:08,006 | INFO | app.core.log_config | POST /login/users - 0.6154s
-2026-05-04 16:36:34,113 | WARNING | app.core.log_config | Unauthorized admin try to the top data user | admin_email: hamdankhalid111@gmail.com
-2026-05-04 16:36:34,113 | INFO | app.core.log_config | GET /top_user - 0.0943s
-2026-05-05 17:01:37,936 | INFO | app.core.log_config | GET /docs - 0.0047s
-2026-05-05 17:01:38,324 | INFO | app.core.log_config | GET /openapi.json - 0.1476s
-2026-05-05 17:02:09,592 | CRITICAL | app.core.log_config | JWT config error: Secret key not found!
-2026-05-05 17:02:09,596 | INFO | app.core.log_config | POST /login/users - 0.8177s
-2026-05-05 17:05:43,811 | CRITICAL | app.core.log_config | Jwt config error: Algorithm not found!
-2026-05-05 17:05:43,811 | INFO | app.core.log_config | POST /login/users - 0.5221s
-2026-05-05 17:07:18,057 | CRITICAL | app.core.log_config | Jwt config error: Algorithm not found!
-2026-05-05 17:07:18,057 | INFO | app.core.log_config | POST /login/users - 0.4305s
-2026-05-05 18:48:53,784 | INFO | app.core.log_config | GET /docs - 0.0013s
-2026-05-05 18:48:54,011 | INFO | app.core.log_config | GET /openapi.json - 0.1134s
-2026-05-05 18:49:20,927 | CRITICAL | app.core.log_config | JWT config error: Secret key not found!
-2026-05-05 18:49:20,930 | INFO | app.core.log_config | POST /login/users - 0.5552s
-2026-05-05 18:50:31,972 | CRITICAL | app.core.log_config | JWT config error: Secret key not found!
-2026-05-05 18:50:31,972 | INFO | app.core.log_config | POST /login/users - 0.4089s
-2026-05-05 18:51:00,257 | CRITICAL | app.core.log_config | Jwt config error: Algorithm not found!
-2026-05-05 18:51:00,260 | INFO | app.core.log_config | POST /login/users - 0.2957s
+
+
+2026-05-08 20:17:43,644 | INFO | app.core.log_config | GET /docs - 0.0697s
+2026-05-08 20:17:43,876 | INFO | app.core.log_config | GET /openapi.json - 0.1178s
+2026-05-08 20:22:30,310 | INFO | app.core.log_config | User created sucessfully | user_email: hamdan111@gmail.com
+2026-05-08 20:22:30,312 | INFO | app.core.log_config | POST /users - 0.7659s
+2026-05-08 20:36:17,097 | INFO | app.core.log_config | User authenticated successfully | user_email: hamdan111@gmail.com
+2026-05-08 20:36:17,097 | INFO | app.core.log_config | POST /login/users - 0.7283s
+2026-05-08 20:36:31,438 | INFO | app.core.log_config | User created sucessfully | user_email: hamdan121@gmail.com
+2026-05-08 20:36:31,446 | INFO | app.core.log_config | POST /users - 0.1876s
+2026-05-08 20:39:56,306 | INFO | app.core.log_config | User created sucessfully | user_email: hamdan145@gmail.com
+2026-05-08 20:39:56,312 | INFO | app.core.log_config | POST /users - 0.5821s
+2026-05-08 20:40:22,730 | INFO | app.core.log_config | User authenticated successfully | user_email: hamdan145@gmail.com
+2026-05-08 20:40:22,730 | INFO | app.core.log_config | POST /login/users - 0.1617s

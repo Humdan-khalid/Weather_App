@@ -6,9 +6,10 @@ from app.database_models.admins_table import CreateAdmin, Admins, LoginAdmin
 from sqlmodel import Session
 from app.core import exceptions
 from app.core.log_config import logger
+from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 
-def new_account_created(user: CreateUsers, session: Session):
-    db_user = auth_repo.user_authentication_with_email(session, user.email)
+async def new_account_created(user: CreateUsers, session: AsyncSession):
+    db_user = await auth_repo.user_authentication_with_email(session, user.email)
     
     if db_user:
         logger.warning(f"User account already exist at this email. | Email: {user.email}")
@@ -23,18 +24,18 @@ def new_account_created(user: CreateUsers, session: Session):
     )
 
     try:
-        auth_repo.user_save_in_database(session, new_user)
+        await auth_repo.user_save_in_database(session, new_user)
 
     except Exception as e:
-        session.rollback()
+        await session.rollback()
         logger.error(f"Failed to save user account due to a database error! {str(e)}")
         raise exceptions.ServerError("Internal Server Error!")
 
     logger.info(f"User created sucessfully | user_email: {user.email}")
     return new_user
     
-def user_login(user: UsersLogin, session: Session):
-    db_user = auth_repo.user_authentication_with_email(session, user.email)
+async def user_login(user: UsersLogin, session: AsyncSession):
+    db_user = await auth_repo.user_authentication_with_email(session, user.email)
     
     if not db_user:
         logger.warning(f"Login attempt failed with wrong email | email: {user.email}")
