@@ -4,12 +4,14 @@ from app.database.database_connection import get_session
 from app.core.exceptions import CityNotFound, InvalidCredentials, DatabaseError, WeatherApiKeyNotFound
 from app.services import weather_service
 from app.core.jwt import user_token
+from app.repository.auth_repo import AsyncSession
+
 
 router = APIRouter()
 
 
-@router.get("/get_weather", status_code=status.HTTP_200_OK)
-async def get_weather(city_name: str, session: Session=Depends(get_session), user: dict=Depends(user_token)):
+@router.get("/live-weather", status_code=status.HTTP_200_OK)
+async def get_weather(city_name: str, session: AsyncSession=Depends(get_session), user: dict=Depends(user_token)):
     try:
         result = await weather_service.get_live_weather(city_name, session, user)
 

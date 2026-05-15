@@ -57,8 +57,8 @@ async def user_login(user: UsersLogin, session: AsyncSession):
     return{"access_token": token,
            "token_type": "Bearer"}
 
-def admin_new_account_created(admin: CreateAdmin, session: Session):
-    db_admin = auth_repo.admin_authentication_with_email(session, admin.email)
+async def admin_new_account_created(admin: CreateAdmin, session: AsyncSession):
+    db_admin = await auth_repo.admin_authentication_with_email(session, admin.email)
 
     if db_admin:
         logger.warning(f"Admin account already exists at this email | email: {admin.email}")
@@ -73,17 +73,17 @@ def admin_new_account_created(admin: CreateAdmin, session: Session):
     )
 
     try:
-        auth_repo.admin_save_in_database(session, new_admin)
+        await auth_repo.admin_save_in_database(session, new_admin)
     except Exception as e:
-        session.rollback()
+        await session.rollback()
         logger.error(f"Failed to save admin account due to a database error!, {str(e)}")
         raise exceptions.AdminAlreadyExist("Internal server error!")
     
     logger.info(f"Successfully admin account created | email: {admin.email}")
     return new_admin
 
-def admin_login(admin: LoginAdmin ,session: Session):
-    db_admin = auth_repo.admin_authentication_with_email(session, admin.email)
+async def admin_login(admin: LoginAdmin ,session: Session):
+    db_admin = await auth_repo.admin_authentication_with_email(session, admin.email)
 
     if not db_admin:
         logger.warning(f"Admin login attempt failed with wrong email | email: {admin.email}")

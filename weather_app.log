@@ -1,14 +1,18 @@
-
-
-2026-05-08 20:17:43,644 | INFO | app.core.log_config | GET /docs - 0.0697s
-2026-05-08 20:17:43,876 | INFO | app.core.log_config | GET /openapi.json - 0.1178s
-2026-05-08 20:22:30,310 | INFO | app.core.log_config | User created sucessfully | user_email: hamdan111@gmail.com
-2026-05-08 20:22:30,312 | INFO | app.core.log_config | POST /users - 0.7659s
-2026-05-08 20:36:17,097 | INFO | app.core.log_config | User authenticated successfully | user_email: hamdan111@gmail.com
-2026-05-08 20:36:17,097 | INFO | app.core.log_config | POST /login/users - 0.7283s
-2026-05-08 20:36:31,438 | INFO | app.core.log_config | User created sucessfully | user_email: hamdan121@gmail.com
-2026-05-08 20:36:31,446 | INFO | app.core.log_config | POST /users - 0.1876s
-2026-05-08 20:39:56,306 | INFO | app.core.log_config | User created sucessfully | user_email: hamdan145@gmail.com
-2026-05-08 20:39:56,312 | INFO | app.core.log_config | POST /users - 0.5821s
-2026-05-08 20:40:22,730 | INFO | app.core.log_config | User authenticated successfully | user_email: hamdan145@gmail.com
-2026-05-08 20:40:22,730 | INFO | app.core.log_config | POST /login/users - 0.1617s
+2026-05-11 11:05:10,407 | CRITICAL | app.core.log_config | Jwt config error: Algorithm not found!
+2026-05-11 11:17:04,221 | ERROR | app.core.log_config | Jwt decode failed: The specified alg value is not allowed
+2026-05-11 11:29:31,656 | CRITICAL | app.core.log_config | Jwt config error: Algorithm not found!
+2026-05-11 11:29:31,690 | INFO | app.core.log_config | GET /live-weather - 0.1475s
+2026-05-11 11:30:43,564 | CRITICAL | app.core.log_config | Jwt config error: Algorithm not found!
+2026-05-11 11:30:43,566 | INFO | app.core.log_config | GET /user-history - 0.0989s
+2026-05-11 11:34:20,471 | INFO | app.core.log_config | Token expired
+2026-05-11 11:34:20,475 | INFO | app.core.log_config | GET /live-weather - 0.1252s
+2026-05-11 11:34:30,452 | INFO | app.core.log_config | User authenticated successfully | user_email: hamdankhalid111@gmail.com
+2026-05-11 11:34:30,452 | INFO | app.core.log_config | POST /users/login - 0.6334s
+2026-05-11 11:34:55,790 | CRITICAL | app.core.log_config | Weather api key is missing!
+2026-05-11 11:34:55,799 | INFO | app.core.log_config | GET /live-weather - 1.5213s
+2026-05-11 14:54:25,147 | INFO | app.core.log_config | User authenticated successfully | user_email: hamdankhalid111@gmail.com
+2026-05-11 14:54:25,147 | INFO | app.core.log_config | POST /users/login - 1.3088s
+2026-05-11 14:55:38,562 | INFO | app.core.log_config | Admin authenticated successfully | admin_email: ayesha111@gmail.com
+2026-05-11 14:55:38,562 | INFO | app.core.log_config | POST /admins/login - 0.2074s
+2026-05-11 14:57:03,811 | INFO | app.core.log_config | Admin successfully access the top user data. | email: ayesha111@gmail.com
+2026-05-11 14:57:03,811 | INFO | app.core.log_config | GET /top-user - 0.3172s

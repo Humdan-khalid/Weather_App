@@ -20,7 +20,7 @@ async def user_new_account(user:CreateUsers, session: AsyncSession=Depends(get_s
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=str(e))
     
 
-@router.post("/login/users", status_code=status.HTTP_200_OK)
+@router.post("/users/login", status_code=status.HTTP_200_OK)
 async def login_users(user: UsersLogin, session: AsyncSession = Depends(get_session)):
     try:
         return await auth_service.user_login(user, session)

@@ -6,9 +6,10 @@ from app.repository import auth_repo
 from app.utils import caching
 from app.core.exceptions import InvalidCredentials, CityNotFound
 from app.core.log_config import logger
+from app.services.auth_service import AsyncSession
 
-async def get_live_weather(city_name: str, session: Session, user: dict):
-    db_user = auth_repo.user_authentication_with_email(session, user["email"])
+async def get_live_weather(city_name: str, session: AsyncSession, user: dict):
+    db_user = await auth_repo.user_authentication_with_email(session, user["email"])
 
     if not db_user:
         logger.warning(f"Unauthorized User tried to fetched the weather data. | Email: {user['email']}")
@@ -20,17 +21,17 @@ async def get_live_weather(city_name: str, session: Session, user: dict):
         logger.warning(f"City not found! | city: {city}")
         raise CityNotFound("City not found")
 
-    cache_data = get_weather_data_from_cache(city)
+    cache_data = await get_weather_data_from_cache(city)
 
     if cache_data:
-        weather_repo.save_weather_history(session, db_user.id, cache_data, city)
+        await weather_repo.save_weather_history(session, db_user.id, cache_data, city)
         return cache_data
     
     data = await api_call.get_weather_from_api(city)
 
-    caching.set_cached(city, data)
+    await caching.set_cached(city, data)
 
-    weather_repo.save_weather_history(session, db_user.id, data, city)
+    await weather_repo.save_weather_history(session, db_user.id, data, city)
 
     return data
 

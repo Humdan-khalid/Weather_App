@@ -16,15 +16,17 @@ async def user_save_in_database(session: AsyncSession, user: Users):
     await session.refresh(user)
 
 
-def admin_save_in_database(session: Session, admin: Admins):
+async def admin_save_in_database(session: Session, admin: Admins):
     session.add(admin)
-    session.commit()
-    session.refresh(admin)
+    await session.commit()
+    await session.refresh(admin)
 
 
-def admin_authentication_with_email(session: Session, admin: dict):
-    return session.exec(
+async def admin_authentication_with_email(session: Session, email: EmailStr):
+    result = await session.execute(
                 select(Admins)
                     .where(
-                        Admins.email == admin
-                    )).first()
+                        Admins.email == email
+                    ))
+    
+    return result.scalars().first()

@@ -1,5 +1,5 @@
 import json
-import redis
+import redis.asyncio as redis
 from app.core.log_config import logger
 
 r = redis.Redis(
@@ -10,12 +10,12 @@ r = redis.Redis(
 )
 
 
-def get_weather_data_from_cache(city_name: str):
+async def get_weather_data_from_cache(city_name: str):
 
     city = city_name.title()
 
     data = f"weather:{city}"
-    cached = r.hgetall(data)
+    cached = await r.hgetall(data)
 
     if not cached:
         return None
@@ -26,15 +26,15 @@ def get_weather_data_from_cache(city_name: str):
         }
 
 
-def set_cached(city: str, data: dict):
+async def set_cached(city: str, data: dict):
     key=f"weather:{city}"
-    r.hset(key, mapping=data)
-    r.expire(key, 300)
+    await r.hset(key, mapping=data)
+    await r.expire(key, 300)
 
 
-def get_user_weather_history_from_cache(user_id: int):
+async def get_user_weather_history_from_cache(user_id: int):
     cache_key = f"user:{user_id}"
-    cached = r.get(cache_key)
+    cached = await r.get(cache_key)
 
     if not cached:
         return None
@@ -42,7 +42,7 @@ def get_user_weather_history_from_cache(user_id: int):
     
     return cached
 
-def save_history_in_cache(data: dict, user: dict):
+async def save_history_in_cache(data: dict, user: dict):
     key = f"user:{user['id']}"
-    r.set(key, json.dumps(data))
-    r.expire(key, 300)
+    await r.set(key, json.dumps(data))
+    await r.expire(key, 300)

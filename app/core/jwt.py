@@ -15,7 +15,7 @@ def valid_jwt_config():
         logger.critical("Jwt config error: Algorithm not found!")
         raise SecretDataNotFound("Internal Server Error!")
 
-def create_token(user_data: dict, time_expiry: timedelta = timedelta(minutes=60)):
+def create_token(user_data: dict, time_expiry: timedelta = timedelta(minutes=2)):
     valid_jwt_config()
 
     payload = user_data.copy()

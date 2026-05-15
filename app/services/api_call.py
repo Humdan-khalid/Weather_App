@@ -10,12 +10,10 @@ def validate_weather_api_key():
     if not weather_api_key:
         logger.critical("Weather api key is missing!")
         raise WeatherApiKeyNotFound("Internal Server error!")
-    
     return weather_api_key
 
 async def get_weather_from_api(city: str):
     async with httpx.AsyncClient() as client:
-
         api_key = validate_weather_api_key()
         response = await client.get(url, params={
             "q": city,
