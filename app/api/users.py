@@ -18,7 +18,7 @@ async def user_new_account(user:CreateUsers, session: AsyncSession=Depends(get_s
     
     except ServerError as e:
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=str(e))
-    
+
 
 @router.post("/users/login", status_code=status.HTTP_200_OK)
 async def login_users(user: UsersLogin, session: AsyncSession = Depends(get_session)):
@@ -33,4 +33,3 @@ async def login_users(user: UsersLogin, session: AsyncSession = Depends(get_sess
     
     except InvalidToken as e:
         raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail=str(e))
-

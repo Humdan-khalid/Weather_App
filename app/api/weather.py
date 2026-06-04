@@ -9,7 +9,6 @@ from app.repository.auth_repo import AsyncSession
 
 router = APIRouter()
 
-
 @router.get("/live-weather", status_code=status.HTTP_200_OK)
 async def get_weather(city_name: str, session: AsyncSession=Depends(get_session), user: dict=Depends(user_token)):
     try:
