@@ -34,12 +34,3 @@ async def get_live_weather(city_name: str, session: AsyncSession, user: dict):
     await weather_repo.save_weather_history(session, db_user.id, data, city)
 
     return data
-
-
-    
-
-
-
-
-
-

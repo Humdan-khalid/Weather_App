@@ -9,7 +9,7 @@ pwd_context = CryptContext(
 
 def create_hash_password(password: str):
     if password is None:
-        raise ValueError("password is None!")
+        raise ValueError("Password is None!")
     
     hashed_password = pwd_context.hash(password)
     return hashed_password
