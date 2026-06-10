@@ -15,7 +15,7 @@ async def get_live_weather(city_name: str, session: AsyncSession, user: dict):
         logger.warning(f"Unauthorized User tried to fetched the weather data. | Email: {user['email']}")
         raise InvalidCredentials("User not found!")
     
-    city = city_name.title()
+    city = city_name.title() 
 
     if not city:
         logger.warning(f"City not found! | city: {city}")

@@ -1,7 +1,6 @@
 from app.repository.auth_repo import user_authentication_with_email, user_save_in_database
 from app.database_models.users_table import Users
 import pytest
-from datetime import datetime
 
 @pytest.mark.asyncio
 async def test_email_not_found(db_session):
