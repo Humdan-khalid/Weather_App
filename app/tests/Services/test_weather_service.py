@@ -1,6 +1,6 @@
 from unittest.mock import AsyncMock, patch, Mock
 from app.services.weather_service import get_live_weather
-from app.core.exceptions import InvalidCredentials
+from app.core.exceptions import InvalidCredentials, CityNotFound
 import pytest
 from app.services.weather_service import get_live_weather
 
@@ -124,3 +124,30 @@ async def test_weather_api_hit(
     )
 
     assert result == weather
+    fake_cache.assert_not_awaited
+
+@patch(
+        "app.services.weather_service.auth_repo.user_authentication_with_email"
+)
+
+@pytest.mark.asyncio
+async def test_city_not_found(
+        mock_auth
+        ):
+    
+    fake_user = Mock()
+
+    fake_user.id = 8
+
+    mock_auth.return_value = fake_user
+
+    with pytest.raises(
+        CityNotFound
+    ):
+        await get_live_weather(
+            "",
+            AsyncMock(),
+            {
+                "email": "hamdan@gmail.com"
+            }
+        )

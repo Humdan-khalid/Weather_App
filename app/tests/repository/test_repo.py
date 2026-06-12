@@ -1,6 +1,9 @@
 from app.repository.auth_repo import user_authentication_with_email, user_save_in_database
+from app.repository.weather_repo import save_weather_history
 from app.database_models.users_table import Users
+from app.database_models.user_data_history import UserHistory
 import pytest
+from datetime import datetime
 
 @pytest.mark.asyncio
 async def test_email_not_found(db_session):
@@ -15,11 +18,11 @@ async def test_email_not_found(db_session):
 async def test_find_user_by_email(db_session):
     result = await user_authentication_with_email(
         db_session,
-        "hamdan@gmail.com"
+        "bilal@gmail.com"
     )
 
     assert result is not None
-    assert result.email == "hamdan@gmail.com"
+    assert result.email == "bilal@gmail.com"
 
 
 @pytest.mark.asyncio
@@ -42,5 +45,30 @@ async def test_user_save_in_database(db_session):
     assert result.email == "bilal@gmail.com"
 
 
+async def test_history_save(db_session):
+    weather = {
+                "temperature": 35.6,
+                "feels_like":24.2,
+                "humidity": 12,
+                "wind": 32,
+                "weather": "Cloudy",
+                "description": "scattered clouds",
+                "time": datetime.now()
+                }
 
+    result = await save_weather_history(
+                db_session,
+                36,
+                weather,
+                "Abu Dhabi"
+    )
 
+    from sqlalchemy import select
+
+    result = await db_session.execute(
+    select(UserHistory)
+)
+
+    history = result.scalar_one()
+
+    assert history.user_id == 36

@@ -18,11 +18,12 @@ async def save_weather_history(session: AsyncSession, user_id: int, data: dict, 
         description=data['description'],
         time=str(data['time'])
         )
+
         try:
             session.add(user_history)
             await session.commit()
             await session.refresh(user_history)
-        
+            
         except Exception as e:
             await session.rollback()
             raise exceptions.DatabaseError("Internal Server Error!")
