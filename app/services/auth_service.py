@@ -77,7 +77,7 @@ async def admin_new_account_created(admin: CreateAdmin, session: AsyncSession):
     except Exception as e:
         await session.rollback()
         logger.error(f"Failed to save admin account due to a database error!, {str(e)}")
-        raise exceptions.AdminAlreadyExist("Internal server error!")
+        raise exceptions.DatabaseError("Internal server error!")
     
     logger.info(f"Successfully admin account created | email: {admin.email}")
     return new_admin

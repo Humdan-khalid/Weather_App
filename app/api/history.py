@@ -20,7 +20,6 @@ async def get_history(session: AsyncSession=Depends(get_session), user: dict=Dep
 
     return result
 
-
 @router.get("/city", status_code=status.HTTP_200_OK)
 async def top_city(session: AsyncSession = Depends(get_session), admin: dict = Depends(user_token)):
     try:

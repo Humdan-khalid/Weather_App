@@ -1,10 +1,7 @@
-from unittest.mock import patch, Mock, AsyncMock
-from fastapi.testclient import TestClient
-from app.main import app
+from unittest.mock import patch
 from app.core.exceptions import UserAlreadyExist, ServerError, \
 InvalidCredentials, SecretDataNotFound, InvalidToken
 
-client = TestClient(app)
 
 payload = {
         "id": 1,
@@ -15,7 +12,7 @@ payload = {
         "password": "Bismillah2830"
     }
 
-def test_create_user():
+def test_create_user(client):
     fake_user = payload
 
     with patch(
@@ -37,7 +34,7 @@ def test_create_user():
         fake_service.assert_called_once()
 
 
-def test_create_user_already_exist():
+def test_create_user_already_exist(client):
     with patch(
         "app.services.auth_service.new_account_created"
     ) as fake_service:
@@ -55,7 +52,7 @@ def test_create_user_already_exist():
         assert response.status_code == 409
 
 
-def test_create_user_server_error():
+def test_create_user_server_error(client):
     with patch(
         "app.services.auth_service.new_account_created"
     ) as fake_service:
@@ -72,7 +69,7 @@ def test_create_user_server_error():
         assert response.status_code == 500
 
 
-def test_user_login_fail():
+def test_user_login_fail(client):
     with patch("app.services.auth_service.user_login") as fake_auth:
         fake_auth.side_effect = InvalidCredentials(
             "Invalid email or password"
@@ -88,7 +85,7 @@ def test_user_login_fail():
 
         assert response.status_code == 401
 
-def test_user_login_successful():
+def test_user_login_successful(client):
     with patch(
         "app.services.auth_service.user_login"
     ) as fake_auth:
@@ -108,7 +105,7 @@ def test_user_login_successful():
         assert response.status_code == 200
 
 
-def test_user_login_secret_data_not_found():
+def test_user_login_secret_data_not_found(client):
     with patch("app.services.auth_service.user_login") as fake_auth:
         fake_auth.side_effect = SecretDataNotFound(
             "Secret Key not found!"
@@ -125,7 +122,7 @@ def test_user_login_secret_data_not_found():
         assert response.status_code == 500
 
 
-def test_user_login_invalid_token():
+def test_user_login_invalid_token(client):
     with patch(
         "app.services.auth_service.user_login"
     ) as fake_auth:

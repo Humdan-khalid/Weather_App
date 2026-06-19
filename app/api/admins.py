@@ -26,9 +26,9 @@ async def admin_created(create_admin: CreateAdmin, session: AsyncSession = Depen
 
 @router.post("/admins/login", status_code=status.HTTP_200_OK)
 async def admin_login(admin: LoginAdmin ,session: AsyncSession = Depends(get_session)):
-    try:
-        result = await auth_service.admin_login(admin, session)
-    
-    except InvalidCredentials as e:
-        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail=str(e))
-    return result
+        try:
+            result = await auth_service.admin_login(admin, session)
+        
+        except InvalidCredentials as e:
+            raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail=str(e))
+        return result

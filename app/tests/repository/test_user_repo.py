@@ -4,6 +4,9 @@ from app.database_models.users_table import Users
 from app.database_models.user_data_history import UserHistory
 import pytest
 from datetime import datetime
+from app.core.exceptions import DatabaseError
+from unittest.mock import AsyncMock
+from sqlmodel import select
 
 @pytest.mark.asyncio
 async def test_email_not_found(db_session):
@@ -63,12 +66,33 @@ async def test_history_save(db_session):
                 "Abu Dhabi"
     )
 
-    from sqlalchemy import select
-
     result = await db_session.execute(
-    select(UserHistory)
-)
+    select(UserHistory).where(UserHistory.id == 14)
+    )
 
     history = result.scalar_one()
 
-    assert history.user_id == 36
+    assert history.id == 14
+
+async def test_database_error(db_session):
+    weather = {
+                "temperature": 35.6,
+                "feels_like": 24.2,
+                "humidity": 12,
+                "wind": 32,
+                "weather": "Cloudy",
+                "description": "scattered clouds",
+                "time": datetime.now()
+                }
+
+    db_session.commit = AsyncMock(
+    side_effect=Exception("Database down")
+    )
+
+    with pytest.raises(DatabaseError):
+        await save_weather_history(
+        db_session,
+        36,
+        weather,
+        "Abu Dhabi"
+    )        
