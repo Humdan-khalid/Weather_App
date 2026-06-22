@@ -55,14 +55,6 @@ async def find_top_location(session: AsyncSession):
             "total": total} 
 
 async def find_top_user(session: AsyncSession):
-    # user = await session.execute(
-    #     select(UserHistory.user_id,
-    #            func.count().label("total")
-    #            )
-    #            .group_by(UserHistory.user_id)
-    #            .order_by(func.count().desc())
-    #         )
-    
     user = await session.execute(
         select(
             Users.id, Users.name,
@@ -75,7 +67,7 @@ async def find_top_user(session: AsyncSession):
 
     result = user.first()
     
-    if not user:
+    if not result:
           return None
     
     user_id, user_name, total = result
@@ -83,4 +75,5 @@ async def find_top_user(session: AsyncSession):
     return{
           "user_id": user_id,
           "user_name": user_name,
-          "total": total}
+          "total": total
+          }

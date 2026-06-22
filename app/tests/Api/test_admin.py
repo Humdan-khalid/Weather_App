@@ -1,6 +1,8 @@
 from unittest.mock import Mock, patch, AsyncMock
-from app.core.exceptions import InvalidCredentials, AdminAlreadyExist, DatabaseError
+from app.core.exceptions import InvalidCredentials, AdminAlreadyExist, DatabaseError, UserNotFound
 from app.database_models.admins_table import CreateAdmin
+from app.core.jwt import user_token
+from app.main import app
 
 def test_admin_login_fail(client):
     with patch(
@@ -99,3 +101,91 @@ async def test_admin_created_successfully(client):
                                json = data)
           
         assert result.status_code == 201
+
+def fake_admin():
+     return {
+     "id": 1
+}
+
+async def test_admin_not_found(client):
+     app.dependency_overrides[user_token] = fake_admin
+     with patch(
+          "app.api.history.user_history.get_top_search_location",
+          new = AsyncMock(
+               side_effect = InvalidCredentials(
+                    "Admin not found!"
+               )
+          )
+     ):
+          response = client.get("/city")
+
+          assert response.status_code == 401
+          app.dependency_overrides.clear()
+
+top_city = {
+     "city": "Karachi",
+     "total": 9
+}
+
+async def test_find_top_location_successfully(client):
+     app.dependency_overrides[user_token] = fake_admin
+     with patch(
+          "app.api.history.user_history.get_top_search_location",
+          new = AsyncMock(
+               return_value = top_city
+     )
+     ):
+          response = client.get(
+            "/city"    
+          )
+
+          assert response.status_code == 200
+          app.dependency_overrides.clear()
+
+async def test_invalid_admin(client):
+     app.dependency_overrides[user_token] = fake_admin
+     with patch(
+          "app.api.history.user_history.get_top_data_user",
+          new = AsyncMock(
+               side_effect = InvalidCredentials(
+                    "Admin not found"
+               )
+          )
+     ):
+          response = client.get("/top-user")
+
+          assert response.status_code == 401
+          app.dependency_overrides.clear()
+
+async def test_top_user_not_found(client):
+     app.dependency_overrides[user_token] = fake_admin
+     with patch(
+          "app.api.history.user_history.get_top_data_user",
+          new = AsyncMock(
+               side_effect = UserNotFound(
+                    "Admin not found"
+               )
+          )
+     ):
+          response = client.get("/top-user")
+
+          assert response.status_code == 404
+          app.dependency_overrides.clear()
+
+top_user = {
+     "id": 1,
+     "name": "Hamdan"
+}
+
+async def test_top_user_find_succcessfully(client):
+     app.dependency_overrides[user_token] = fake_admin
+     with patch(
+          "app.api.history.user_history.get_top_data_user",
+          new = AsyncMock(
+               return_value = top_user
+               )
+     ):
+          response = client.get("/top-user")
+
+          assert response.status_code == 200
+          app.dependency_overrides.clear()

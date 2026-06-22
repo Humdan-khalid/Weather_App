@@ -12,7 +12,7 @@ router = APIRouter()
 async def get_history(session: AsyncSession=Depends(get_session), user: dict=Depends(user_token)):
     try:
         result = await user_history.get_user_history(session, user)
-    except ServerError as e:
+    except InvalidCredentials as e:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail=str(e))
     
     except HistoryNotFound as e:
