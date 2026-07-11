@@ -16,10 +16,10 @@ async def admin_created(create_admin: CreateAdmin, session: AsyncSession = Depen
         result = await auth_service.admin_new_account_created(create_admin, session)
 
     except AdminAlreadyExist as e:
-        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail=str(e))
+        raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail=f"Admin account already exist at this email | email: {create_admin.email}")
     
     except DatabaseError as e:
-        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=str(e))
+        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Internal Server Error!")
     
     return result
 
@@ -28,7 +28,10 @@ async def admin_created(create_admin: CreateAdmin, session: AsyncSession = Depen
 async def admin_login(admin: LoginAdmin ,session: AsyncSession = Depends(get_session)):
         try:
             result = await auth_service.admin_login(admin, session)
+            return result
         
         except InvalidCredentials as e:
-            raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail=str(e))
-        return result
+            raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail=str("Invalid Admin!"))
+        
+        except DatabaseError as e:
+             raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Internal Server Error!")

@@ -4,7 +4,7 @@ from app.utils.caching import get_weather_data_from_cache
 from app.repository import weather_repo
 from app.repository import auth_repo 
 from app.utils import caching
-from app.core.exceptions import InvalidCredentials, CityNotFound
+from app.core import exceptions
 from app.core.log_config import logger
 from app.services.auth_service import AsyncSession
 
@@ -13,13 +13,13 @@ async def get_live_weather(city_name: str, session: AsyncSession, user: dict):
 
     if not db_user:
         logger.warning(f"Unauthorized User tried to fetched the weather data. | Email: {user['email']}")
-        raise InvalidCredentials("User not found!")
+        raise exceptions.InvalidCredentials("User not found!")
     
     city = city_name.title()
 
     if not city:
         logger.warning(f"City not found! | city: {city}")
-        raise CityNotFound("City not found")
+        raise exceptions.CityNotFound("City not found")
 
     cache_data = await get_weather_data_from_cache(city)
 

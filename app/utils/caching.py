@@ -3,7 +3,7 @@ import redis.asyncio as redis
 from app.core.log_config import logger
 
 r = redis.Redis(
-    host="localhost",
+    host="redis",
     port=6379,
     db=0,
     decode_responses=True
@@ -20,7 +20,7 @@ async def get_weather_data_from_cache(city_name: str):
     if not cached:
         return None
     
-    logger.info(f"{city} weather data came from the cache.")
+    logger.info(f"{city} weather data come from the cache.")
     return {
         k: v for k, v in cached.items()
         }

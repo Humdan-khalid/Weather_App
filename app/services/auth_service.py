@@ -7,6 +7,7 @@ from sqlmodel import Session
 from app.core import exceptions
 from app.core.log_config import logger
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
+from sqlalchemy.exc import SQLAlchemyError
 
 async def new_account_created(user: CreateUsers, session: AsyncSession):
     db_user = await auth_repo.user_authentication_with_email(session, user.email)
@@ -26,10 +27,9 @@ async def new_account_created(user: CreateUsers, session: AsyncSession):
     try:
         await auth_repo.user_save_in_database(session, new_user)
 
-    except Exception as e:
-        await session.rollback()
+    except SQLAlchemyError as e:
         logger.error(f"Failed to save user account due to a database error! {str(e)}")
-        raise exceptions.ServerError("Internal Server Error!")
+        raise exceptions.DatabaseError("Database error!")
 
     logger.info(f"User created sucessfully | user_email: {user.email}")
     return new_user
@@ -72,12 +72,7 @@ async def admin_new_account_created(admin: CreateAdmin, session: AsyncSession):
         password=create_hash_password(admin.password)
     )
 
-    try:
-        await auth_repo.admin_save_in_database(session, new_admin)
-    except Exception as e:
-        await session.rollback()
-        logger.error(f"Failed to save admin account due to a database error!, {str(e)}")
-        raise exceptions.DatabaseError("Internal server error!")
+    await auth_repo.admin_save_in_database(session, new_admin)
     
     logger.info(f"Successfully admin account created | email: {admin.email}")
     return new_admin

@@ -13,7 +13,7 @@ class DatabaseError(Exception):
 class HistoryNotFound(Exception):
     pass
 
-class UserNotFound(Exception):
+class TopUserNotFound(Exception):
     pass
 
 class AdminAlreadyExist(Exception):

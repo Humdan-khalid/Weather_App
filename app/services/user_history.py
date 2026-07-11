@@ -21,10 +21,6 @@ async def get_user_history(session: AsyncSession, user: dict):
         return json.loads(cache)
     
     history = await weather_repo.find_user_history(session, user)
-
-    if not history:
-        logger.warning(f"user history not found! | email: {user['email']}")
-        raise exceptions.HistoryNotFound("user history not found!")
     
     await caching.save_history_in_cache(history, user)
 
@@ -41,6 +37,10 @@ async def get_top_search_location(session: AsyncSession, admin: dict):
     
     city = await weather_repo.find_top_location(session)
 
+    if not city:
+        logger.warning("top search city not found")
+        raise exceptions.CityNotFound("top search city not found")
+
     logger.info(f"Admin successfully access the top search city. | admin_email: {admin['email']}")
     return city
 
@@ -56,7 +56,7 @@ async def get_top_data_user(session: AsyncSession, admin):
 
     if not db_user:
         logger.warning("Top user data not found!")
-        raise exceptions.UserNotFound("top user not found!")
+        raise exceptions.TopUserNotFound("top user not found!")
     
     logger.info(f"Admin successfully access the top user data. | email: {admin['email']}")
     return db_user

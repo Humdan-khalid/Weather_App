@@ -4,18 +4,18 @@ from fastapi import Depends
 from app.core.log_config import logger
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from app.core.config import secret_key, algorithm
-from app.core.exceptions import SecretDataNotFound, TokenExpired, InvalidToken
+from app.core import exceptions
 
 def valid_jwt_config():
     if not secret_key:
         logger.critical("JWT config error: Secret key not found!")
-        raise SecretDataNotFound("Internal Server Error!")
+        raise exceptions.SecretDataNotFound("Internal Server Error!")
 
     if not algorithm:
         logger.critical("Jwt config error: Algorithm not found!")
-        raise SecretDataNotFound("Internal Server Error!")
+        raise exceptions.SecretDataNotFound("Internal Server Error!")
 
-def create_token(user_data: dict, time_expiry: timedelta = timedelta(minutes=2)):
+def create_token(user_data: dict, time_expiry: timedelta = timedelta(minutes=60)):
     valid_jwt_config()
 
     payload = user_data.copy()
@@ -34,11 +34,11 @@ def user_token_verification(token: str):
     
     except ExpiredSignatureError:
         logger.info("Token expired")
-        raise TokenExpired("Token expired!")
+        raise exceptions.TokenExpired("Token expired!")
     
     except JWTError as e:
         logger.error(f"Jwt decode failed: {str(e)}")
-        raise InvalidToken("Invalid token!")
+        raise exceptions.InvalidToken("Invalid token!")
     
     return user_token
 

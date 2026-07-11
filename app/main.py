@@ -1,6 +1,6 @@
 from fastapi import FastAPI, Request
 from app.core.middleware import log_request_middleware
-from app.core.exceptions import DatabaseUrlNotFound, TokenExpired, SecretDataNotFound
+from app.core.exceptions import DatabaseUrlNotFound, TokenExpired, SecretDataNotFound, InvalidToken
 from fastapi.responses import JSONResponse
 from app.api import users, weather, history, admins
 
@@ -22,8 +22,15 @@ def token_expired(request: Request, exc: TokenExpired):
         content={"detail": "Token has expired!"}
     )
 
+@app.exception_handler(InvalidToken)
+def token_is_invalid(request: Request, exc: InvalidToken):
+    return JSONResponse(
+        status_code=500,
+        content={"detail": str(exc)}
+    )
+
 @app.exception_handler(SecretDataNotFound)
-def token_expired(request: Request, exc: SecretDataNotFound):
+def secret_data_not_found(request: Request, exc: SecretDataNotFound):
     return JSONResponse(
         status_code= 500,
         content={"detail": str(exc)}

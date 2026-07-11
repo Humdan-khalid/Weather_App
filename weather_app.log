@@ -1,2 +1,108 @@
 2026-06-17 08:54:07,944 | INFO | app.core.log_config | GET /docs - 0.0000s
 2026-06-17 08:54:09,768 | INFO | app.core.log_config | GET /openapi.json - 0.2372s
+2026-07-07 16:22:20,086 | INFO | app.core.log_config | GET /docs - 0.0000s
+2026-07-07 16:22:20,752 | INFO | app.core.log_config | GET /openapi.json - 0.2206s
+2026-07-07 16:30:18,416 | INFO | app.core.log_config | POST /users/login - 2.7661s
+2026-07-07 16:33:39,240 | INFO | app.core.log_config | POST /users/login - 2.7795s
+2026-07-07 16:36:03,654 | INFO | app.core.log_config | POST /users/login - 2.8108s
+2026-07-07 18:49:43,200 | INFO | app.core.log_config | User created sucessfully | user_email: yousuf@gmail.com
+2026-07-07 18:49:43,206 | INFO | app.core.log_config | POST /users - 0.7276s
+2026-07-07 18:50:18,206 | INFO | app.core.log_config | User authenticated successfully | user_email: yousuf@gmail.com
+2026-07-07 18:50:18,216 | INFO | app.core.log_config | POST /users/login - 0.3639s
+2026-07-07 18:50:33,397 | INFO | app.core.log_config | User authenticated successfully | user_email: yousuf@gmail.com
+2026-07-07 18:50:33,399 | INFO | app.core.log_config | POST /users/login - 0.1648s
+2026-07-07 18:50:38,755 | INFO | app.core.log_config | User authenticated successfully | user_email: yousuf@gmail.com
+2026-07-07 18:50:38,755 | INFO | app.core.log_config | POST /users/login - 0.1595s
+2026-07-07 18:51:54,452 | INFO | app.core.log_config | User authenticated successfully | user_email: yousuf@gmail.com
+2026-07-07 18:51:54,459 | INFO | app.core.log_config | POST /users/login - 0.5001s
+2026-07-07 20:58:14,664 | INFO | app.core.log_config | GET /docs - 0.0000s
+2026-07-07 20:58:15,162 | INFO | app.core.log_config | GET /openapi.json - 0.1967s
+2026-07-07 21:00:11,939 | WARNING | app.core.log_config | User account already exist at this email. | Email: hamdan@gmail.com
+2026-07-07 21:00:11,941 | INFO | app.core.log_config | POST /users - 0.4635s
+2026-07-07 21:00:41,619 | WARNING | app.core.log_config | Login attempt failed with wrong password | email: hamdan@gmail.com
+2026-07-07 21:00:41,631 | INFO | app.core.log_config | POST /users/login - 0.2552s
+2026-07-07 21:01:10,996 | INFO | app.core.log_config | User authenticated successfully | user_email: hamdankhalid111@gmail.com
+2026-07-07 21:01:10,996 | INFO | app.core.log_config | POST /users/login - 0.2396s
+2026-07-08 18:42:40,989 | INFO | app.core.log_config | GET /docs - 0.0000s
+2026-07-08 18:42:41,330 | INFO | app.core.log_config | GET /openapi.json - 0.1639s
+2026-07-08 18:43:37,671 | INFO | app.core.log_config | Successfully admin account created | email: abdulbasit@gmail.com
+2026-07-08 18:43:37,671 | INFO | app.core.log_config | POST /admins - 0.8845s
+2026-07-08 20:32:29,383 | WARNING | app.core.log_config | Login attempt failed with wrong email | email: hamdnkhalid111@gmail.com
+2026-07-08 20:32:29,391 | INFO | app.core.log_config | POST /users/login - 0.5034s
+2026-07-08 20:32:45,511 | INFO | app.core.log_config | User authenticated successfully | user_email: hamdankhalid111@gmail.com
+2026-07-08 20:32:45,511 | INFO | app.core.log_config | POST /users/login - 0.4660s
+2026-07-08 20:34:19,175 | INFO | httpx | HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?q=Islamabad&appid=b8255bf89ea06bc7f0dfd13a270eddc6&units=metric "HTTP/1.1 200 OK"
+2026-07-08 20:34:19,183 | INFO | app.core.log_config | Islamabad weather data fetch successfully from api.
+2026-07-08 20:34:19,256 | INFO | app.core.log_config | GET /live-weather - 3.3831s
+2026-07-08 20:34:39,143 | INFO | app.core.log_config | Islamabad weather data come from the cache.
+2026-07-08 20:34:39,174 | INFO | app.core.log_config | GET /live-weather - 0.0393s
+2026-07-08 20:42:10,084 | INFO | httpx | HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?q=Islama&appid=b8255bf89ea06bc7f0dfd13a270eddc6&units=metric "HTTP/1.1 404 Not Found"
+2026-07-08 20:42:10,086 | INFO | app.core.log_config | Islama weather data fetch successfully from api.
+2026-07-08 20:43:17,630 | INFO | httpx | HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?q=Islama&appid=b8255bf89ea06bc7f0dfd13a270eddc6&units=metric "HTTP/1.1 404 Not Found"
+2026-07-08 20:43:17,633 | INFO | app.core.log_config | Islama weather data fetch successfully from api.
+2026-07-08 20:43:50,469 | INFO | httpx | HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?q=Islama&appid=b8255bf89ea06bc7f0dfd13a270eddc6&units=metric "HTTP/1.1 404 Not Found"
+2026-07-08 20:43:50,469 | INFO | app.core.log_config | Islama weather data fetch successfully from api.
+2026-07-08 20:48:01,348 | INFO | httpx | HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?q=Italy&appid=b8255bf89ea06bc7f0dfd13a270eddc6&units=metric "HTTP/1.1 200 OK"
+2026-07-08 20:48:01,354 | INFO | app.core.log_config | Italy weather data fetch successfully from api.
+2026-07-08 20:48:01,419 | INFO | app.core.log_config | GET /live-weather - 2.5146s
+2026-07-08 20:50:46,100 | INFO | httpx | HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?q=Ita&appid=b8255bf89ea06bc7f0dfd13a270eddc6&units=metric "HTTP/1.1 200 OK"
+2026-07-08 20:50:46,100 | INFO | app.core.log_config | Ita weather data fetch successfully from api.
+2026-07-08 20:50:46,187 | INFO | app.core.log_config | GET /live-weather - 2.5675s
+2026-07-08 20:50:55,042 | INFO | app.core.log_config | Ita weather data come from the cache.
+2026-07-08 20:50:55,075 | INFO | app.core.log_config | GET /live-weather - 0.0392s
+2026-07-08 20:51:28,293 | INFO | httpx | HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?q=Itadkdk&appid=b8255bf89ea06bc7f0dfd13a270eddc6&units=metric "HTTP/1.1 404 Not Found"
+2026-07-08 20:51:28,293 | WARNING | app.core.log_config | Itadkdk not found!
+2026-07-08 20:51:28,293 | INFO | app.core.log_config | GET /live-weather - 2.2051s
+2026-07-08 20:51:38,862 | INFO | app.core.log_config | Ita weather data come from the cache.
+2026-07-08 20:51:38,898 | INFO | app.core.log_config | GET /live-weather - 0.0455s
+2026-07-08 20:51:48,262 | INFO | httpx | HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?q=Ipak&appid=b8255bf89ea06bc7f0dfd13a270eddc6&units=metric "HTTP/1.1 404 Not Found"
+2026-07-08 20:51:48,265 | WARNING | app.core.log_config | Ipak not found!
+2026-07-08 20:51:48,274 | INFO | app.core.log_config | GET /live-weather - 2.1969s
+2026-07-08 20:51:55,327 | INFO | httpx | HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?q=Pak&appid=b8255bf89ea06bc7f0dfd13a270eddc6&units=metric "HTTP/1.1 200 OK"
+2026-07-08 20:51:55,336 | INFO | app.core.log_config | Pak weather data fetch successfully from api.
+2026-07-08 20:51:55,361 | INFO | app.core.log_config | GET /live-weather - 2.2112s
+2026-07-08 20:52:09,255 | INFO | httpx | HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?q=Pakistan&appid=b8255bf89ea06bc7f0dfd13a270eddc6&units=metric "HTTP/1.1 200 OK"
+2026-07-08 20:52:09,262 | INFO | app.core.log_config | Pakistan weather data fetch successfully from api.
+2026-07-08 20:52:09,295 | INFO | app.core.log_config | GET /live-weather - 2.0933s
+2026-07-08 20:52:47,904 | INFO | app.core.log_config | Pak weather data come from the cache.
+2026-07-08 20:52:47,965 | INFO | app.core.log_config | GET /live-weather - 0.4342s
+2026-07-08 20:52:57,272 | INFO | httpx | HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?q=Ind&appid=b8255bf89ea06bc7f0dfd13a270eddc6&units=metric "HTTP/1.1 404 Not Found"
+2026-07-08 20:52:57,282 | WARNING | app.core.log_config | Ind not found!
+2026-07-08 20:52:57,289 | INFO | app.core.log_config | GET /live-weather - 2.3280s
+2026-07-08 20:58:03,962 | INFO | httpx | HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?q=Pak&appid=b8255bf89ea06bc7f0dfd13a270eddc6&units=metric "HTTP/1.1 200 OK"
+2026-07-08 20:58:03,978 | INFO | app.core.log_config | Pak weather data fetch successfully from api.
+2026-07-08 20:58:04,028 | INFO | app.core.log_config | GET /live-weather - 2.2055s
+2026-07-09 16:25:09,509 | INFO | app.core.log_config | GET /docs - 0.0024s
+2026-07-09 16:25:09,962 | INFO | app.core.log_config | GET /openapi.json - 0.2090s
+2026-07-09 18:12:26,862 | INFO | app.core.log_config | GET /docs - 0.0020s
+2026-07-09 18:12:27,164 | INFO | app.core.log_config | GET /openapi.json - 0.1554s
+2026-07-09 18:13:57,271 | INFO | app.core.log_config | User created sucessfully | user_email: yousufahmad@gmail.com
+2026-07-09 18:13:57,271 | INFO | app.core.log_config | POST /users - 0.9139s
+2026-07-09 18:14:15,360 | INFO | app.core.log_config | POST /users/login - 0.0009s
+2026-07-09 18:14:28,757 | INFO | app.core.log_config | User authenticated successfully | user_email: yousufahmad@gmail.com
+2026-07-09 18:14:28,758 | INFO | app.core.log_config | POST /users/login - 0.2379s
+2026-07-09 18:15:29,328 | INFO | app.core.log_config | User history not found in database. User | 47
+2026-07-09 18:15:29,328 | INFO | app.core.log_config | GET /user-history - 0.0449s
+2026-07-09 18:18:11,465 | INFO | app.core.log_config | User authenticated successfully | user_email: hamdankhalid111@gmail.com
+2026-07-09 18:18:11,465 | INFO | app.core.log_config | POST /users/login - 0.1555s
+2026-07-09 18:18:27,626 | INFO | app.core.log_config | User history was fetched from the database. | Email: hamdankhalid111@gmail.com
+2026-07-09 18:18:27,634 | INFO | app.core.log_config | GET /user-history - 0.0261s
+2026-07-09 18:20:35,748 | INFO | app.core.log_config | Admin successfully access the top search city. | admin_email: hamdankhalid111@gmail.com
+2026-07-09 18:20:35,748 | INFO | app.core.log_config | GET /city - 0.3006s
+2026-07-09 18:22:33,476 | ERROR | app.core.log_config | Jwt decode failed: Signature verification failed.
+2026-07-09 18:22:33,478 | INFO | app.core.log_config | GET /city - 0.0032s
+2026-07-09 18:45:33,529 | INFO | app.core.log_config | User authenticated successfully | user_email: hamdankhalid111@gmail.com
+2026-07-09 18:45:33,529 | INFO | app.core.log_config | POST /users/login - 0.5689s
+2026-07-09 18:45:59,221 | INFO | app.core.log_config | GET /top-user - 0.0067s
+2026-07-09 18:47:19,979 | INFO | app.core.log_config | GET /top-user - 0.0072s
+2026-07-09 18:49:49,551 | INFO | app.core.log_config | GET /top-user - 0.0000s
+2026-07-09 18:51:51,303 | INFO | app.core.log_config | Admin successfully access the top user data. | email: hamdankhalid111@gmail.com
+2026-07-09 18:51:51,303 | INFO | app.core.log_config | GET /top-user - 0.3587s
+2026-07-09 18:55:18,193 | INFO | app.core.log_config | Admin successfully access the top user data. | email: hamdankhalid111@gmail.com
+2026-07-09 18:55:18,196 | INFO | app.core.log_config | GET /top-user - 0.3698s
+2026-07-11 23:59:05,613 | INFO | app.core.log_config | GET /docs - 0.0000s
+2026-07-11 23:59:05,954 | INFO | app.core.log_config | GET /openapi.json - 0.1887s
+2026-07-12 00:02:14,738 | WARNING | app.core.log_config | User account already exist at this email. | Email: hamdankhalid111@gmail.com
+2026-07-12 00:02:14,744 | INFO | app.core.log_config | POST /users - 0.5100s
+2026-07-12 00:02:35,706 | WARNING | app.core.log_config | User account already exist at this email. | Email: hamdankhalid111@gmail.com
+2026-07-12 00:02:35,706 | INFO | app.core.log_config | POST /users - 0.3318s
